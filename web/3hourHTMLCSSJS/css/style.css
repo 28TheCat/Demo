@@ -1,0 +1,17 @@
+p{
+    color:red;
+}
+.hight{
+    background-color: yellow;
+}
+#element:hover{
+    background-color: blue;
+}
+.demo{
+
+    background-color: aqua;
+    display: inline-block;
+    border: 20px yellow;
+    width: 200px;
+    height: 300px;
+}

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@visactor/vrender": "^0.22.6"
+  }
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@6.5.1/css/all.min.css">
+    <style>
+           .icon-demo {
+            margin: 20px;
+            font-size: 32px; /* 图标大小 */
+            color: #b33737; /* 图标颜色（示例：百度红） */
+            gap: 20px;
+            display: flex;
+            align-items: center;
+        }
+        * {
+            overflow-x: auto;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .footer {
+            display: flex;
+            align-items: flex-end;
+            padding: 0 10px;
+            height: 72px;
+            font-size: 10px;
+            margin-left: 70px;
+        }
+
+        .footer a {
+            color: #8b8b8b;
+            text-decoration: none;
+            padding: 2px;
+        }
+        .footer a :hover{
+            color: #315EFB;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .banner {
+            height: 60px;
+            width: 100%;
+            /* background-color: #b33737; */
+            display: flex;
+            align-items: center;
+        }
+
+
+        .banner ul {
+            height: 60px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .banner ul li a {
+            color: #4a4a4a;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 0 10px;
+            line-height: 40px;
+        }
+
+        .banner ul li a:hover {
+            color: #315EFB;
+        }
+
+        .banner ul li img {
+            width: 22px;
+            /* height: 20px; */
+        }
+
+        .banner .right {
+            position: absolute;
+            right: 0;
+            top: 15px;
+            z-index: 100;
+            height: 60px;
+            padding-right: 24px;
+            padding-left: 200px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .banner .right span {
+            color: #4a4a4a;
+            font-size: 12px;
+
+        }
+
+        .banner .right span:hover {
+            color: #315EFB;
+        }
+
+        .banner .right button {
+            line-height: 24px;
+            height: 24px;
+            margin-left: 26px;
+            background-color: #315EFB;
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: 0 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .content {
+            height: 500px;
+            width: 50%;
+            margin: 0 auto;
+            /* background-color: aqua; */
+        }
+
+        .content .logo {
+            background-size: cover;
+            margin: 0 auto;
+            width: 270px;
+            height: 129px;
+            background-color: #fff;
+            background-image: url("image.png");
+        }
+
+        .content .search {
+            margin: 15px auto;
+            /* background-color: #863030; */
+            width: 100%;
+            height: 100px;
+            border: #315EFB 1px solid;
+            border-radius: 20px;
+        }
+
+        .content .search input {
+            border-radius: 20px;
+            border: none;
+            width: 100%;
+            height: 50px;
+            padding-left: 10px;
+            /* background-color: #4a4a4a; */
+
+        }
+
+        .content .search input::placeholder {
+            margin-left: 5px;
+            font-size: 16px;
+            /* color: #4a4a4a; */
+        }
+
+        .content .search button {
+            float: right;
+            background-color: #315EFB;
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: 0 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            height: 40px;
+            margin-right: 20px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        /* .content .search input:hover {
+            color: #4a4a4a;
+        } */
+
+        .news-wrapper {
+
+            font-size: 15px;
+            color: #2b2b2b;
+            display: flex;
+            gap: 40px;
+        }
+
+        .news-list {
+            list-style: decimal;
+            padding: 20px;
+            margin: 0;
+            width: 50%;
+        }
+
+        .news-list li {
+            display: flex;
+            flex-shrink: 0;
+            overflow-x: auto;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <ul>
+            <li><a href="#">新闻</a></li>
+            <li><a href="#">hao123</a></li>
+            <li><a href="#">地图</a></li>
+            <li><a href="#">贴吧</a></li>
+            <li><a href="#">视频</a></li>
+            <li><a href="#">图片</a></li>
+            <li><a href="#">网盘</a></li>
+            <li><a href="#">文库</a></li>
+            <li><a href="#"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAqCAMAAAAqEZ1jAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAhOAAAITgBRZYxYAAAAKJQTFRFAAAAenb/RpP/k2j/XXf7cXX6P5z7i2n8W3j7ZHP7jmn9VID7Qpf8jWn8Xnr6iWr8YHb7i2n8RJb9dWz8WXr8mWj9RpP8W3n8bW/8l2j+QJz9Q5f9ToT8fWv9ZW/8lWj9VID8YnX7Pp79QZr9pWb+RJT8m2f9k2j9SYz8jWn9hmr8UIT8fmv8VX78Xnn7d2z8ZHT7WHr7bm77Xnb7Z3D7YHH7RJOQRAAAACJ0Uk5TABAgICAwQEBAWF5gZXBwgICbn5+fo7+/vsLP39/f3urv73XwOA8AAAKfSURBVHja7dbJcuIwFIXhIzCxMTMNcdwMDoMZY4NxeP9X66srEckYQlPVvcvPBhZ8dVSIAvz03xNV/Luq4Xq9Hgo8nfDqjXq97hS1yXZNhXg2Z3o+f1KnLqx62y17Pp5smp+158EUaW6I52rkxLF3eoNpt1Ne+bR+Fd8U5Oc8Px6P5M0Evgq11ytpy0jgbk6e5cSxd2pb7yKOikpTouWyhbsNMsnpefZpOzsCI7c8brkM74/LqFSC7HkwVTu9lsB14ZJy745LlDdV5+3iQTXC7s9z3pNEggOh9s3woOFqJT2BmzUSLnMQEEeeh2+rkraiOrjZeL+XXEBwyp71Ybg+hWL+iltGt8ftKQI9QMzSlDxz9VofssIMdxitdJEvbo3jxqAGKXtt6N4OkpvgkmiFa50Ch1UU8zab/Ya4Br/IUnnewHCHg+FEh7/ExUIXdq+KG4N7z3hfzXDkaa5FmGpdMENrYWWjaoDrJtJLu4ajFFfbUduryN1ue4brb2KpjSvgvETe53R24U6Ggz+RYJnsCTMujmMJ9qELErkv9y7cyXAGtNCoI2Dqx9ymAl1bcYMLJ2NO5fZ2dmHLxiBGrJlxEAl7M1HkTFUzseeiWHOxYK+CrwLltRX3qTk7/4PbTXDdaBHLxytMdcllaaA56U1RSEyU56M0jotfYBLvynM091ni0GGtPO73nLkR7AaK6yqOKnG1g+wXrnqZz9nrw87bszdjjn/dDGffbgdX9YmT4HykaoLTp/UABGfyypx7a1yFNb0wpl7BddW8geSO5JU5TE63xhmOPb2uok8reN1Nrn4qjQNBlmfdvkB5beaoMgdP4LpFgbNuX3svtSwABoZ7WPOKa0Inxgl7DurMdfFXVV7savjK8WQ1/cz5+Q9e7A/jUZeiPQO0fwAAAABJRU5ErkJggg=="
+                        alt=""></a></li>
+            <li><a href="#">更多</a></li>
+        </ul>
+        <div class="right">
+            <span>设置</span>
+            <span><button>登录</button></span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="logo"><a href="#"></a></div>
+        <div class="search">
+            <input type="text" placeholder="百度一下" />
+            <button>百度一下</button>
+        </div>
+        <div class="news-wrapper">
+            <ul class="news-list">
+                <li>金秋里 听历史的声息拂过耳畔</li>
+                <li>香港黄金盗窃案已拘捕12男1女</li>
+                <li>小米召回116887辆SU7电动汽车</li>
+                <li>公安部公布10起网络违法犯罪案例</li>
+                <li>《731》所有日本角色均由日籍演员出演</li>
+            </ul>
+            <ul class="news-list">
+                <li>高校捞80000斤鱼请全校师生吃</li>
+                <li>端起历史的望远镜</li>
+                <li>翟欣欣涉敲诈勒索案一审获刑12年</li>
+                <li>41米84帅飞行员成航展“人形打卡点”</li>
+                <li>美国再次一票否决安理会加沙决议</li>
+            </ul>
+        </div>
+
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>
+                <a href="#">关于百度</a>
+                <a href="#">About Baidu</a>
+                <a href="#">使用百度前必读</a>
+                <a href="#">帮助中心</a>
+                <a href="#">企业推广</a>
+                <a href="#">京公网安备11000002000001号 </a>
+                <a href="#">京ICP证030173号</a>
+                <a href="#"> 互联网新闻信息服务许可证11220180008 </a>
+                <a href="#">网络文化经营许可证：京网文〔2023〕1034-029号</a>
+                <a href="#">信息网络传播视听节目许可证0110516</a>
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
