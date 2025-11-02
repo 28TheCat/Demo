@@ -36,9 +36,9 @@ public class LoginJFrame extends JFrame implements MouseListener {
         this.setVisible(true);
     }
 
-    private void readerUserInfo() throws FileNotFoundException {
-        FileUt
-    }
+//    private void readerUserInfo() throws FileNotFoundException {
+//        FileUt
+//    }
 
     public void initView() {
         //1. 添加用户名文字
