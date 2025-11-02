@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <!-- 左栏：信丰八景 -->
+        <div class="column">
+            <h2>信丰八景</h2>
+            <ul class="newsList">
+                <li><a href="#" target="_blank">谷山积翠</a><span class="time">05-26</span></li>
+                <li><a href="#" target="_blank">竹桥夕照</a><span class="time">05-26</span></li>
+                <li><a href="#" target="_blank">西湖夜月</a><span class="time">05-26</span></li>
+                <li><a href="#" target="_blank">桃水拖蓝</a><span class="time">05-26</span></li>
+                <li><a href="#" target="_blank">七里滩声</a><span class="time">05-26</span></li>
+                <li><a href="#" target="_blank">五团仙迹</a><span class="time">05-26</span></li>
+            </ul>
+        </div>
+
+        <!-- 右栏：橙乡旅游 -->
+        <div class="column">
+            <h2>橙乡旅游</h2>
+            <ul class="newsList">
+                <li><a href="#" target="_blank">五一远离城市喧嚣！来新田坪地山邂逅爱情、品味美食、畅享欢乐~</a><span class="time">06-04</span>
+                </li>
+                <li><a href="#" target="_blank">品味信丰，从信丰阁开始！</a><span class="time">12-05</span></li>
+                <li><a href="#" target="_blank">坪地山漂流开漂了</a><span class="time">07-16</span></li>
+                <li><a href="#" target="_blank">五一游信丰 | 红色旅游掀热潮</a><span class="time">05-05</span></li>
+                <li><a href="#" target="_blank">主播带你打卡油山，追寻红色足迹</a><span class="time">05-12</span></li>
+                <li><a href="#" target="_blank">《文化和旅游部立法工作规定》3月1日起施行</a><span class="time">03-03</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<style>
+    .column {
+        flex: 1;
+        min-width: 280px;
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .column:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* 新闻列表样式 */
+    ul.newsList {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    ul.newsList li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding: 8px 10px;
+        border-radius: 5px;
+        transition: background-color 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    ul.newsList li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+    }
+
+    ul.newsList li:hover {
+        background-color: #f9f9f9;
+    }
+
+    ul.newsList li:hover::before {
+        background-color: #5eb9d2;
+    }
+
+    ul.newsList li a {
+        text-decoration: none;
+        color: #333;
+        flex: 1;
+        padding-right: 10px;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    ul.newsList li a:hover {
+        color: #5eb9d2;
+    }
+
+    .time {
+        color: #999;
+        font-size: 0.9em;
+        margin-left: 10px;
+        flex-shrink: 0;
+        padding: 2px 5px;
+        border-radius: 3px;
+        background-color: #f5f5f5;
+    }
+</style>
+
+</html>

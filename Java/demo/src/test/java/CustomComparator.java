@@ -9,9 +9,9 @@ public class CustomComparator {
     @Test
     public void test(){
         List<User> users=new ArrayList<>();
-        users.add(new User("Tom", 25));
+        users.add(new User("Tom", 21));
         users.add(new User("Alice", 30));
-        users.add(new User("Bob", 25));
+        users.add(new User("Bob", 26));
         users.add(new User("David", 20));
 
         Comparator<User> userComparator=new Comparator<User>() {
@@ -20,5 +20,7 @@ public class CustomComparator {
                 return o1.getAge()-o2.getAge();
             }
         };
+        users.sort(userComparator);
+        System.out.println(users);
     }
 }

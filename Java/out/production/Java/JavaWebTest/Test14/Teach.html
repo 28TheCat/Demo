@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display 属性示例</title>
+<style>
+  .block-box {
+    display: block;  
+    background-color: #ff9999;
+    width: 200px;
+    height: 50px;
+    margin: 10px 0;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .inline-box {
+    display: inline;  
+    background-color: #99ccff;
+    width: 200px; /* 对 inline 无效 */
+    height: 50px; /* 对 inline 无效 */
+    margin: 10px;
+    text-align: center;
+    line-height: 50px; /* 高度无效，但可以看出文字居中 */
+  }
+
+  .ib-box {
+    display: inline-block; 
+    background-color: #99ff99;
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .flex-box {
+    display: flex;  
+    background-color: #ffcc99;
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .flex-box div {
+    background-color: #ff6666;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+  }
+
+  .grid-box {
+    display: grid;  
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    background-color: #ccccff;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .grid-box div {
+    background-color: #6666ff;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+  }
+
+  .hidden-box {
+    display: none;  
+    background-color: #000;
+    width: 100px;
+    height: 50px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Block 元素</h2>
+<div class="block-box">Block</div>
+<div class="block-box">Block</div>
+
+<h2>Inline 元素</h2>
+<span class="inline-box">Inline 1</span>
+<span class="inline-box">Inline 2</span>
+
+<h2>Inline-block 元素</h2>
+<div class="ib-box">IB 1</div>
+<div class="ib-box">IB 2</div>
+
+<h2>Flex 容器</h2>
+<div class="flex-box">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+
+<h2>Grid 容器</h2>
+<div class="grid-box">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+</div>
+
+<h2>Hidden 元素</h2>
+<div class="hidden-box">你看不到我</div>
+
+</body>
+</html>
