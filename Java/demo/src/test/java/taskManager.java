@@ -1,4 +1,4 @@
-import com.sky.TaskManagerDoubly;
+import com.wangyating.TaskManagerDoubly;
 import org.junit.Test;
 
 public class taskManager {

@@ -1,4 +1,4 @@
-package com.sky;
+package com.wangyating;
 
 import lombok.Data;
 

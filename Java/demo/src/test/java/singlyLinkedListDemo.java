@@ -1,5 +1,4 @@
-import com.sky.SinglyLinkedList;
-import com.sky.SinglyNode; 
+import com.wangyating.SinglyLinkedList;
 import org.junit.Test;
 
 public class singlyLinkedListDemo {

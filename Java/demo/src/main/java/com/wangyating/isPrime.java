@@ -1,4 +1,4 @@
-package com.sky;
+package com.wangyating;
 
 public class isPrime {
     public boolean isPrime1(int n) {

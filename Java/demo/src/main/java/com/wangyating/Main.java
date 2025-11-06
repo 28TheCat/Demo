@@ -1,7 +1,4 @@
-package com.sky;
-
-import java.math.BigInteger;
-import java.util.*;
+package com.wangyating;
 
 public class Main {
     public static void main(String[] args) {

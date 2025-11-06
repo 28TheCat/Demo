@@ -1,4 +1,4 @@
-import com.sky.User;
+import com.wangyating.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
