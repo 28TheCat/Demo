@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Animations</title>
+    <style>
+        /* 1. 初始状态 (Div 的基本样式) */
+        div{
+            /* 外边距：顶部和底部 100px，左右 0 */
+            margin: 100px 0; 
+            /* 初始宽度 */
+            width: 100px; 
+            /* 初始高度 */
+            height: 100px; 
+            /* 背景颜色 */
+            background-color: pink; 
+            /* 过渡效果：所有属性的变化都在 1 秒内平滑完成 */
+            transition: all 1s; 
+            /* 为了更好地观察形变，确保元素不会超出其父容器 */
+            /* 并且在缩放时保持中心不变，可以添加 transform-origin */
+            transform-origin: center center; 
+        }
+
+        /* 2. 鼠标悬停状态 (Div 的形变动画) */
+        div:hover{
+            /* Transform 属性组合了四个形变函数：
+               - translate(200px, 50px): 沿X轴平移200px，沿Y轴平移50px
+               - rotate(360deg): 顺时针旋转360度
+               - scale(4): 放大4倍 (宽度和高度都乘以4)
+               - skew(170deg): 沿X轴倾斜170度
+            */
+            transform: translate(200px, 50px) rotate(360deg) scale(4) skew(170deg);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
