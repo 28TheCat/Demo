@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 1. 配置组件扫描 -->
+    <context:component-scan base-package="com.example.controller" />
+
+    <!-- 2. 配置视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 前缀 -->
+        <property name="prefix" value="/WEB-INF/views/" />
+        <!-- 后缀 -->
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 3. 配置MVC注解驱动 -->
+    <mvc:annotation-driven>
+        <!-- 配置消息转换器 -->
+        <mvc:message-converters register-defaults="true">
+            <!-- Jackson JSON转换器 -->
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 4. 配置静态资源处理 -->
+    <mvc:default-servlet-handler />
+
+    <!-- 5. 配置文件上传解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 最大上传文件大小 -->
+        <property name="maxUploadSize" value="10485760" />
+        <!-- 内存中最大缓存大小 -->
+        <property name="maxInMemorySize" value="4096" />
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+
+    <!-- 6. 配置异常处理器 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- 默认错误视图 -->
+        <property name="defaultErrorView" value="error/error" />
+        <!-- 异常属性名 -->
+        <property name="exceptionAttribute" value="exception" />
+        <!-- 自定义异常映射 -->
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">error/error</prop>
+                <prop key="java.lang.RuntimeException">error/error</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

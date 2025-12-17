@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间：对应BookDao接口 -->
+<mapper namespace="com.example.dao.BookDao">
+    
+    <!-- 结果映射：将数据库表字段映射到实体类属性 -->
+    <resultMap id="BookResultMap" type="com.example.entity.Book">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="author" column="author" />
+        <result property="publisher" column="publisher" />
+        <result property="publishDate" column="publish_date" jdbcType="DATE" />
+        <result property="isbn" column="isbn" />
+        <result property="price" column="price" jdbcType="DOUBLE" />
+        <result property="stock" column="stock" />
+        <result property="category" column="category" />
+        <result property="cover" column="cover" />
+        <result property="description" column="description" />
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" />
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP" />
+    </resultMap>
+    
+    <!-- SQL片段：常用的查询字段 -->
+    <sql id="Base_Column_List">
+        id, name, author, publisher, publish_date, isbn, price, stock, category, cover, description, create_time, update_time
+    </sql>
+    
+    <!-- 添加图书 -->
+    <insert id="insertBook" parameterType="com.example.entity.Book">
+        INSERT INTO book (
+            name, author, publisher, publish_date, isbn, price, stock, category, cover, description, create_time, update_time
+        ) VALUES (
+            #{name}, #{author}, #{publisher}, #{publishDate}, #{isbn}, #{price}, #{stock}, #{category}, #{cover}, #{description}, NOW(), NOW()
+        )
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    <!-- 根据ID删除图书 -->
+    <delete id="deleteBookById" parameterType="java.lang.Integer">
+        DELETE FROM book WHERE id = #{id}
+    </delete>
+    
+    <!-- 更新图书信息 -->
+    <update id="updateBook" parameterType="com.example.entity.Book">
+        UPDATE book SET
+            name = #{name},
+            author = #{author},
+            publisher = #{publisher},
+            publish_date = #{publishDate},
+            isbn = #{isbn},
+            price = #{price},
+            stock = #{stock},
+            category = #{category},
+            cover = #{cover},
+            description = #{description},
+            update_time = NOW()
+        WHERE id = #{id}
+    </update>
+    
+    <!-- 根据ID查询图书 -->
+    <select id="selectBookById" parameterType="java.lang.Integer" resultMap="BookResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM book
+        WHERE id = #{id}
+    </select>
+    
+    <!-- 查询所有图书 -->
+    <select id="selectAllBooks" resultMap="BookResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM book
+        ORDER BY create_time DESC
+    </select>
+    
+    <!-- 根据名称模糊查询图书 -->
+    <select id="selectBooksByName" parameterType="java.lang.String" resultMap="BookResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM book
+        WHERE name LIKE CONCAT('%', #{name}, '%')
+        ORDER BY create_time DESC
+    </select>
+    
+    <!-- 根据分类查询图书 -->
+    <select id="selectBooksByCategory" parameterType="java.lang.String" resultMap="BookResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM book
+        WHERE category = #{category}
+        ORDER BY create_time DESC
+    </select>
+    
+    <!-- 分页查询图书 -->
+    <select id="selectBooksByPage" resultMap="BookResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM book
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+    
+    <!-- 查询图书总数 -->
+    <select id="selectBookCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM book
+    </select>
+    
+    <!-- 更新图书库存 -->
+    <update id="updateBookStock">
+        UPDATE book SET
+            stock = #{stock},
+            update_time = NOW()
+        WHERE id = #{id}
+    </update>
+</mapper>
